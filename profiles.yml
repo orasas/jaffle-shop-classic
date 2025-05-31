@@ -1,0 +1,14 @@
+my_ecom_profile:
+  target: dev
+  outputs:
+    dev:
+      type: <your-adapter>      # e.g. snowflake, bigquery, postgres
+      account: <…>              # adapter-specific fields
+      user: <…>
+      password: <…>
+      role: <…>                 # if required
+      database: <…>
+      schema: <…>
+      threads: 1
+      # for BigQuery: project, dataset, location, keyfile…
+      # for Snowflake: warehouse, database, schema…
