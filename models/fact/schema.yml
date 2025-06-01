@@ -10,6 +10,9 @@ models:
       - name: user_id
         tests:
           - not_null
+          - relationships:
+              to: ref('stg_events')
+              field: user_id
       #- name: session_start
       #  tests:
       #    - not_null
