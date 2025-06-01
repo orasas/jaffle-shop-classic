@@ -19,18 +19,18 @@ with DAG(
     run_dbt_models = BashOperator(
         task_id='run_dbt_models',
         bash_command=(
-            "source ~/projects/my_ecom_ae_demo/.venv/bin/activate && "
-            "cd ~/projects/my_ecom_ae_demo && "
-            "dbt run --profiles-dir ~/.dbt"
+           "/Users/sean/projects/my_ecom_ae_demo/.venv/bin/dbt "
+            "run --profiles-dir /Users/sean/.dbt "
+            "--project-dir /Users/sean/projects/my_ecom_ae_demo"
         )
     )
 
     test_dbt_models = BashOperator(
         task_id='test_dbt_models',
         bash_command=(
-            "source ~/projects/my_ecom_ae_demo/.venv/bin/activate && "
-            "cd ~/projects/my_ecom_ae_demo && "
-            "dbt test --profiles-dir ~/.dbt"
+           "/Users/sean/projects/my_ecom_ae_demo/.venv/bin/dbt "
+            "test --profiles-dir /Users/sean/.dbt "
+            "--project-dir /Users/sean/projects/my_ecom_ae_demo"
         )
     )
 
