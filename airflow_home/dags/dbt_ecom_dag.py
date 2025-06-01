@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 default_args = {
     'owner': 'you',
     'retries': 1,
-    'retry_delay': timedelta(minutes=5),
+    'retry_delay': timedelta(minutes=1),
 }
 
 with DAG(
