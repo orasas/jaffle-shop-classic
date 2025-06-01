@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 default_args = {
     'owner': 'you',
     'retries': 1,
-    'retry_delay': timedelta(seconds=15),
+    'retry_delay': timedelta(minutes=5),
 }
 
 with DAG(
@@ -16,22 +16,22 @@ with DAG(
     catchup=False
 ) as dag:
 
-    run_dbt_models = BashOperator(
+    run_dbt = BashOperator(
         task_id='run_dbt_models',
         bash_command=(
-           "/Users/sean/projects/my_ecom_ae_demo/.venv/bin/dbt "
+            "/Users/sean/projects/my_ecom_ae_demo/.venv/bin/dbt "
             "run --profiles-dir /Users/sean/.dbt "
             "--project-dir /Users/sean/projects/my_ecom_ae_demo"
         )
     )
 
-    test_dbt_models = BashOperator(
+    test_dbt = BashOperator(
         task_id='test_dbt_models',
         bash_command=(
-           "/Users/sean/projects/my_ecom_ae_demo/.venv/bin/dbt "
+            "/Users/sean/projects/my_ecom_ae_demo/.venv/bin/dbt "
             "test --profiles-dir /Users/sean/.dbt "
             "--project-dir /Users/sean/projects/my_ecom_ae_demo"
         )
     )
 
-    run_dbt_models >> test_dbt_models
+    run_dbt >> test_dbt
