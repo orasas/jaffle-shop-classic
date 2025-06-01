@@ -4,3 +4,8 @@ dbt_modules/
 logs/
 **/.DS_Store
 .venv/
+.env/
+airflow_home/
+*.db
+*.log
+__pycache__/
