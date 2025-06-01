@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: fct_sessions
+    columns:
+      - name: session_id
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+      #- name: session_start
+      #  tests:
+      #    - not_null
+      # - name: session_end
+      #   tests:
+      #     - not_null
+      # - name: duration
+      #   tests:
+      #     - not_null
+      - name: page_views
+        tests:
+          - not_null
+      # - name: events
+      #   tests:
+      #     - not_null
+      # - name: device_type
+      #   tests:
+      #     - accepted_values:
+      #         values: ['desktop', 'mobile', 'tablet']
+      # - name: browser
+      #   tests:
+      #     - accepted_values:
+      #         values: ['chrome', 'firefox', 'safari', 'edge', 'other']
+      # - name: country
+      #   tests:
+      #     - not_null
+
+  - name: fct_orders
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: revenue
+        tests:
+          - not_null

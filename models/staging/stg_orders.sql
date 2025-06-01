@@ -1,23 +1,10 @@
-with source as (
 
-    {#-
-    Normally we would select from the table here, but we are using seeds to load
-    our data in this project
-    #}
-    select * from {{ ref('raw_orders') }}
+  {{ config(materialized = 'view', tags = ['staging']) }}
 
-),
-
-renamed as (
-
-    select
-        id as order_id,
-        user_id as customer_id,
-        order_date,
-        status
-
-    from source
-
-)
-
-select * from renamed
+select
+  order_id,
+  user_id,
+  cast(order_time as timestamp) as order_time,
+  cast(order_date as date)      as order_date,
+  revenue
+from {{ source('raw', 'orders') }}

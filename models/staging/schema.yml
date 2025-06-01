@@ -7,23 +7,20 @@ sources:
       - name: customers
         description: "Table containing customer information"
 
-  - name: raw_orders
-    description: "Raw order data from the e-commerce platform"
-    tables:
-      - name: orders
-        description: "Table containing order details"
 
   - name: raw_payments
     description: "Raw payment data from the e-commerce platform"
     tables:
       - name: payments
         description: "Table containing payment transaction details"
-  - name: raw_events
-    description: "Raw event data from the e-commerce platform"
+  - name: raw
+    database: jaffle-shop-461615
+    schema: my_ecom_demo
     tables:
       - name: events
-        description: "Table containing event logs related to customer interactions"
-
+        identifier: events
+      - name: orders
+        identifier: orders
 models:
   - name: stg_customers
     columns:
@@ -38,10 +35,9 @@ models:
         tests:
           - unique
           - not_null
-      - name: status
+      - name: revenue
         tests:
-          - accepted_values:
-              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+          - not_null
 
   - name: stg_payments
     columns:
