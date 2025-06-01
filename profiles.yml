@@ -1,8 +1,0 @@
-my_ecom_profile:
-  target: dev
-  outputs:
-    dev:
-      type: bigquery      # e.g. snowflake, bigquery, postgres
-      method: oauth
-      project: jaffle-shop
-      dataset: dbt_demo
