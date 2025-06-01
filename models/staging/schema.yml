@@ -1,5 +1,29 @@
 version: 2
 
+sources:
+  - name: raw_customers
+    description: "Raw customer data from the e-commerce platform"
+    tables:
+      - name: customers
+        description: "Table containing customer information"
+
+  - name: raw_orders
+    description: "Raw order data from the e-commerce platform"
+    tables:
+      - name: orders
+        description: "Table containing order details"
+
+  - name: raw_payments
+    description: "Raw payment data from the e-commerce platform"
+    tables:
+      - name: payments
+        description: "Table containing payment transaction details"
+  - name: raw_events
+    description: "Raw event data from the e-commerce platform"
+    tables:
+      - name: events
+        description: "Table containing event logs related to customer interactions"
+
 models:
   - name: stg_customers
     columns:
